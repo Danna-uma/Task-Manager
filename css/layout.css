@@ -162,3 +162,21 @@
     font-size:3rem;
     margin-bottom:1rem;
 }
+
+input[type="date"] {
+    background-color: var(--dark-light);
+    color: var(--light);
+    border: 1px solid var(--primary);
+    padding: 0.8rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+input[type="date"] {
+    color-scheme: dark;
+}
