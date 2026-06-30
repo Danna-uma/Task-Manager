@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="es-CR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Task Manager desarrollado por Danna Villegas. Proyecto de portafolio con HTML, CSS y JavaScript.">
+    <meta name="author" content="Danna Villegas">
+
+    <title>Task Manager | Danna Villegas</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="header-inner">
+
+                <div class="brand">
+
+                    <span class="brand-icon">
+                        ✓
+                    </span>
+
+                    <h1 class="brand-title">
+                        Task Manager
+                    </h1>
+
+                </div>
+
+                <div class="header-actions">
+
+                    <span
+                        class="task-counter"
+                        id="pending-counter">
+
+                        0 tareas pendientes
+
+                    </span>
+
+                    <button
+                        class="icon-btn"
+                        id="theme-btn"
+                        aria-label="Cambiar tema">
+
+                        ⚫
+
+                    </button>
+
+                    <button
+                        class="icon-btn"
+                        id="font-decrease"
+                        aria-label="Reducir texto">
+
+                        A-
+
+                    </button>
+
+                    <button
+                        class="icon-btn"
+                        id="font-increase"
+                        aria-label="Aumentar texto">
+
+                        A+
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- MAIN -->
+
+        <main class="main">
+
+            <!-- CREAR TAREA -->
+
+            <section class="task-creator">
+
+                <div class="creator-card">
+
+                    <h2>
+                        Crear nueva tarea
+                    </h2>
+
+                    <p class="subtitle">
+                        Organiza tu día de forma simple y eficiente
+                    </p>
+
+                    <div class="creator-form">
+
+                        <input
+                            type="text"
+                            id="task-input"
+                            class="input"
+                            placeholder="Escribe tu tarea..."
+                            maxlength="120">
+
+                        <select
+                            id="priority-select"
+                            class="select">
+
+                            <option value="alta">
+                                Alta prioridad
+                            </option>
+
+                            <option value="media" selected>
+                                Prioridad media
+                            </option>
+
+                            <option value="baja">
+                                Baja prioridad
+                            </option>
+
+                        </select>
+
+                        <input
+                            type="date"
+                            id="due-date"
+                            class="input">
+
+                        <button
+                            class="btn-primary"
+                            id="add-btn">
+
+                            + Agregar tarea
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ESTADÍSTICAS -->
+
+            <section class="stats">
+
+                <div class="stat">
+
+                    <h3 id="stat-total">
+                        0
+                    </h3>
+
+                    <p>
+                        Total
+                    </p>
+
+                </div>
+
+                <div class="stat">
+
+                    <h3 id="stat-pending">
+                        0
+                    </h3>
+
+                    <p>
+                        Pendientes
+                    </p>
+
+                </div>
+
+                <div class="stat">
+
+                    <h3 id="stat-done">
+                        0
+                    </h3>
+
+                    <p>
+                        Completadas
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FILTROS -->
+
+            <section class="filters">
+
+                <div class="filter-group">
+
+                    <button
+                        class="filter active"
+                        id="filter-all">
+
+                        Todas
+
+                    </button>
+
+                    <button
+                        class="filter"
+                        id="filter-pending">
+
+                        Pendientes
+
+                    </button>
+
+                    <button
+                        class="filter"
+                        id="filter-done">
+
+                        Completadas
+
+                    </button>
+
+                </div>
+
+                <button
+                    class="btn-danger"
+                    id="clear-btn">
+
+                    Limpiar completadas
+
+                </button>
+
+            </section>
+
+            <!-- LISTA -->
+
+            <section class="tasks">
+
+                <ul
+                    id="task-list"
+                    class="task-list">
+                </ul>
+
+                <div
+                    class="empty"
+                    id="empty-state">
+
+                    <span class="empty-icon">
+                        📋
+                    </span>
+
+                    <h3>
+                        No hay tareas
+                    </h3>
+
+                    <p>
+                        Agrega tu primera tarea para comenzar
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- MODAL -->
+
+        <div
+            class="modal-overlay"
+            id="modal-overlay">
+
+            <div class="modal">
+
+                <h3>
+                    Editar tarea
+                </h3>
+
+                <input
+                    type="text"
+                    id="edit-input"
+                    class="input">
+
+                <select
+                    id="edit-priority"
+                    class="select">
+
+                    <option value="alta">
+                        Alta
+                    </option>
+                    <option value="media">
+                        Media
+                    </option>
+                    <option value="baja">
+                        Baja
+                    </option>
+
+                </select>
+
+                <input
+                    type="date"
+                    id="edit-date"
+                    class="input">
+
+                <div class="modal-actions">
+
+                    <button
+                        class="btn-primary"
+                        id="save-btn">
+
+                        Guardar
+                    </button>
+
+                    <button
+                        class="btn-secondary"
+                        id="cancel-btn">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <p>
+            Desarrollado por <strong>Danna Villegas</strong>· 2026
+            </p>
+
+        </footer>
+
+        <script src="js/script.js"></script>
+
+</body>
+
+</html>
